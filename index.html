@@ -355,33 +355,118 @@ tailwind.config = { darkMode: 'class' }
   © 2026 Omar Thamer
 </footer>
 
-<!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
+// =====================
+// AOS
+// =====================
 AOS.init({
-  duration: 800,
-  once: true,
-  offset: 50
+    duration: 800,
+    once: true,
+    offset: 50
 });
 
-// Dark mode
-const btn = document.getElementById('dark-toggle-btn');
-btn.onclick = () => {
-  document.documentElement.classList.toggle('dark');
-  localStorage.setItem('theme',
-    document.documentElement.classList.contains('dark') ? 'dark' : 'light'
-  );
-};
+// =====================
+// Dark Mode
+// =====================
+const darkBtn = document.getElementById("dark-toggle-btn");
 
-if(localStorage.getItem('theme') === 'dark'){
-  document.documentElement.classList.add('dark');
+if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.classList.add("dark");
 }
 
-// Mobile menu
-document.getElementById('mobile-menu-btn').onclick = () => {
-  document.getElementById('mobile-menu').classList.toggle('hidden');
-};
+darkBtn.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+
+    localStorage.setItem(
+        "theme",
+        document.documentElement.classList.contains("dark")
+            ? "dark"
+            : "light"
+    );
+});
+
+// =====================
+// Mobile Menu
+// =====================
+const mobileBtn = document.getElementById("mobile-menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+
+mobileBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+});
+
+// =====================
+// Skills Carousel
+// =====================
+const carousel = document.getElementById("skillsCarousel");
+const prevBtn = document.getElementById("prevSkill");
+const nextBtn = document.getElementById("nextSkill");
+
+if (carousel && prevBtn && nextBtn) {
+
+    const cards = carousel.querySelectorAll(".shrink-0");
+    let currentIndex = 0;
+
+    function scrollToCard(index) {
+        cards[index].scrollIntoView({
+            behavior: "smooth",
+            inline: "center",
+            block: "nearest"
+        });
+    }
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex++;
+
+        if (currentIndex >= cards.length) {
+            currentIndex = 0;
+        }
+
+        scrollToCard(currentIndex);
+    });
+
+    prevBtn.addEventListener("click", () => {
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex = cards.length - 1;
+        }
+
+        scrollToCard(currentIndex);
+    });
+
+    // Auto-play every 3 seconds
+    let autoSlide = setInterval(() => {
+        currentIndex++;
+
+        if (currentIndex >= cards.length) {
+            currentIndex = 0;
+        }
+
+        scrollToCard(currentIndex);
+    }, 3000);
+
+    // Pause autoplay while hovering
+    carousel.addEventListener("mouseenter", () => {
+        clearInterval(autoSlide);
+    });
+
+    carousel.addEventListener("mouseleave", () => {
+        autoSlide = setInterval(() => {
+            currentIndex++;
+
+            if (currentIndex >= cards.length) {
+                currentIndex = 0;
+            }
+
+            scrollToCard(currentIndex);
+        }, 3000);
+    });
+}
 </script>
+
 
 
 
