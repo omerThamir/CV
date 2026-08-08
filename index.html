@@ -1,483 +1,619 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G5Z6QTZ86B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5Z6QTZ86B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G5Z6QTZ86B');
+    </script>
+    
+    <title>Omar Thamer | Senior Full Stack Engineer</title>
 
-  gtag('config', 'G-G5Z6QTZ86B');
-</script>
-  
-  <title>Omar Thamer | Full Stack Developer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = { darkMode: 'class' }
-</script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-<!-- AOS -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom UI Polish */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+        }
+        .bg-grid-pattern {
+            background-size: 30px 30px;
+            background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+        .dark .bg-grid-pattern {
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans scroll-smooth transition-all duration-500">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans antialiased selection:bg-sky-500 selection:text-white transition-colors duration-300">
 
-<!-- NAVBAR -->
-<nav class="bg-white/70 dark:bg-gray-900/70 backdrop-blur border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- NAVBAR -->
+    <header class="glass-panel border-b border-slate-200/80 dark:border-slate-800/80 sticky top-0 z-50 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
+            
+            <a href="#" class="font-bold text-lg tracking-tight hover:opacity-80 transition flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 flex items-center justify-center font-mono font-bold text-sm">OT</span>
+                <span>Omar Thamer</span>
+            </a>
 
-    <h1 class="font-semibold tracking-wide">Omar Thamer</h1>
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+                <a href="#about" class="hover:text-sky-600 dark:hover:text-sky-400 transition">About</a>
+                <a href="#skills" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Skills</a>
+                <a href="#projects" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Projects</a>
+                <a href="#certifications" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Certifications</a>
+                <a href="#contact" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Contact</a>
 
-    <div class="hidden md:flex items-center gap-8 text-sm">
-      <a href="#about" class="hover:text-blue-500 transition">About</a>
-      <a href="#projects" class="hover:text-blue-500 transition">Projects</a>
-      <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
+                <div class="h-4 w-px bg-slate-200 dark:bg-slate-800"></div>
 
-      <button id="dark-toggle-btn"
-        class="w-9 h-9 rounded-lg bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:scale-110 transition">
-        🌙
-      </button>
-    </div>
-
-    <button id="mobile-menu-btn" class="md:hidden text-xl">☰</button>
-  </div>
-
-  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3 text-sm">
-    <a href="#about" class="block">About</a>
-    <a href="#projects" class="block">Projects</a>
-    <a href="#contact" class="block">Contact</a>
-  </div>
-</nav>
-
-<main>
-
-<!-- HERO -->
-<!-- HERO -->
-<section class="h-[65vh] flex items-center justify-center text-center">
-  <div data-aos="fade-up" class="max-w-2xl px-6">
-    <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-      Full Stack Developer
-      <span class="text-blue-600 dark:text-blue-400">building scalable systems</span>
-    </h1>
-
-    <p class="mt-6 text-gray-600 dark:text-gray-400">
-      I design and build high-performance web applications using Laravel,
-      REST APIs, and modern frontend technologies with a focus on scalability and clean architecture.
-    </p>
-
-    <div class="mt-6 flex justify-center gap-4">
-      <a href="#projects"
-         class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 hover:scale-105 transition">
-         View Work
-      </a>
-
-      <a href="#contact"
-         class="border border-gray-300 dark:border-gray-700 px-6 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 hover:scale-105 transition">
-         Contact
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="py-20">
-  <div class="max-w-4xl mx-auto px-6 text-center" data-aos="fade-up">
-    <h2 class="text-3xl font-semibold mb-6">About</h2>
-
-    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-      I'm a Full Stack Developer with 5+ years of experience building scalable,
-      secure, and maintainable web applications. I focus on backend architecture,
-      API design, and performance optimization while maintaining clean UI/UX practices.
-    </p>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<!-- SKILLS -->
-<section class="py-20 bg-gray-50 dark:bg-gray-900">
-    <div class="max-w-6xl mx-auto px-6">
-
-        <h2 class="text-3xl font-semibold text-center mb-10" data-aos="fade-up">
-            Core Skills
-        </h2>
-
-        <div class="relative">
-
-            <!-- Left Button -->
-            <button id="prevSkill"
-                class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow-lg rounded-full w-10 h-10 hover:scale-110 transition">
-                ❮
-            </button>
-
-            <!-- Carousel -->
-            <div id="skillsCarousel"
-                class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 px-12 pb-4 scrollbar-hide">
-
-                <div class="snap-center shrink-0 w-64">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border dark:border-gray-700 shadow hover:-translate-y-2 hover:shadow-xl transition">
-                        <h3 class="text-xl font-semibold">Laravel</h3>
-                        <p class="mt-3 text-gray-500 text-sm">
-                            Backend Framework
-                        </p>
-                    </div>
-                </div>
-
-                <div class="snap-center shrink-0 w-64">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border dark:border-gray-700 shadow hover:-translate-y-2 hover:shadow-xl transition">
-                        <h3 class="text-xl font-semibold">PHP</h3>
-                        <p class="mt-3 text-gray-500 text-sm">
-                            Server-side Development
-                        </p>
-                    </div>
-                </div>
-
-                <div class="snap-center shrink-0 w-64">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border dark:border-gray-700 shadow hover:-translate-y-2 hover:shadow-xl transition">
-                        <h3 class="text-xl font-semibold">REST APIs</h3>
-                        <p class="mt-3 text-gray-500 text-sm">
-                            API Design & Integration
-                        </p>
-                    </div>
-                </div>
-
-                <div class="snap-center shrink-0 w-64">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border dark:border-gray-700 shadow hover:-translate-y-2 hover:shadow-xl transition">
-                        <h3 class="text-xl font-semibold">MySQL</h3>
-                        <p class="mt-3 text-gray-500 text-sm">
-                            Database Design
-                        </p>
-                    </div>
-                </div>
-
-                <div class="snap-center shrink-0 w-64">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border dark:border-gray-700 shadow hover:-translate-y-2 hover:shadow-xl transition">
-                        <h3 class="text-xl font-semibold">SQL Server</h3>
-                        <p class="mt-3 text-gray-500 text-sm">
-                            Enterprise Database
-                        </p>
-                    </div>
-                </div>
-
-                <div class="snap-center shrink-0 w-64">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border dark:border-gray-700 shadow hover:-translate-y-2 hover:shadow-xl transition">
-                        <h3 class="text-xl font-semibold">Tailwind CSS</h3>
-                        <p class="mt-3 text-gray-500 text-sm">
-                            Modern UI
-                        </p>
-                    </div>
-                </div>
-
-                <div class="snap-center shrink-0 w-64">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border dark:border-gray-700 shadow hover:-translate-y-2 hover:shadow-xl transition">
-                        <h3 class="text-xl font-semibold">Git & GitHub</h3>
-                        <p class="mt-3 text-gray-500 text-sm">
-                            Version Control
-                        </p>
-                    </div>
-                </div>
-
-                <div class="snap-center shrink-0 w-64">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border dark:border-gray-700 shadow hover:-translate-y-2 hover:shadow-xl transition">
-                        <h3 class="text-xl font-semibold">jQuery</h3>
-                        <p class="mt-3 text-gray-500 text-sm">
-                            Interactive UI
-                        </p>
-                    </div>
-                </div>
-
-                <div class="snap-center shrink-0 w-64">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border dark:border-gray-700 shadow hover:-translate-y-2 hover:shadow-xl transition">
-                        <h3 class="text-xl font-semibold">HTML</h3>
-                        <p class="mt-3 text-gray-500 text-sm">
-                            Semantic Markup
-                        </p>
-                    </div>
-                </div>
-
-                <div class="snap-center shrink-0 w-64">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border dark:border-gray-700 shadow hover:-translate-y-2 hover:shadow-xl transition">
-                        <h3 class="text-xl font-semibold">Java</h3>
-                        <p class="mt-3 text-gray-500 text-sm">
-                            Object-Oriented Programming
-                        </p>
-                    </div>
-                </div>
-
-                <div class="snap-center shrink-0 w-64">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 border dark:border-gray-700 shadow hover:-translate-y-2 hover:shadow-xl transition">
-                        <h3 class="text-xl font-semibold">C#</h3>
-                        <p class="mt-3 text-gray-500 text-sm">
-                            .NET Development
-                        </p>
-                    </div>
-                </div>
-
+                <button id="dark-toggle-btn" aria-label="Toggle dark mode"
+                    class="w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                    <i id="theme-icon" class="fa-regular fa-moon"></i>
+                </button>
             </div>
 
-            <!-- Right Button -->
-            <button id="nextSkill"
-                class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow-lg rounded-full w-10 h-10 hover:scale-110 transition">
-                ❯
-            </button>
-
+            <!-- Mobile Menu Trigger -->
+            <div class="flex items-center gap-3 md:hidden">
+                <button id="dark-toggle-btn-mobile" aria-label="Toggle dark mode"
+                    class="w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300">
+                    <i id="theme-icon-mobile" class="fa-regular fa-moon"></i>
+                </button>
+                <button id="mobile-menu-btn" class="p-2 text-slate-600 dark:text-slate-300 text-xl" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
-    </div>
-</section>
 
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 px-6 py-4 space-y-3 text-sm font-medium bg-white dark:bg-slate-900 shadow-xl">
+            <a href="#about" class="block py-1 hover:text-sky-500">About</a>
+            <a href="#skills" class="block py-1 hover:text-sky-500">Skills</a>
+            <a href="#projects" class="block py-1 hover:text-sky-500">Projects</a>
+            <a href="#certifications" class="block py-1 hover:text-sky-500">Certifications</a>
+            <a href="#contact" class="block py-1 hover:text-sky-500">Contact</a>
+        </div>
+    </header>
 
-<!-- PROJECTS -->
-<section id="projects" class="py-20">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-semibold text-center mb-12" data-aos="fade-up">Projects</h2>
+    <main>
+        <!-- HERO SECTION -->
+        <section class="relative min-h-[85vh] flex items-center justify-center py-20 bg-grid-pattern overflow-hidden">
+            <!-- Subtle backdrop glow -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sky-500/10 dark:bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
 
-    <div class="grid md:grid-cols-2 gap-8">
+            <div data-aos="fade-up" class="max-w-3xl px-6 text-center relative z-10">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800/60 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Available for Remote & Enterprise Work
+                </div>
 
-      <div data-aos="fade-up"
-           class="bg-white dark:bg-gray-900 border dark:border-gray-800 rounded-xl p-6 hover:shadow-xl hover:-translate-y-1 transition">
-        <h3 class="text-xl font-semibold">Ticket System </h3>
-        <p class="mt-3 text-gray-600 dark:text-gray-400 text-sm">
-          A dynamic Laravel system for professional Ticket System for IT help desk.
-        </p>
-      <div class="mt-4 flex justify-between items-center text-xs text-blue-500">
-  <span>Laravel • MySQL • Tailwind • jQuery • HTML</span>
-  <a href="https://www.linkedin.com/posts/omar-thamer-b8b6a32a0_aewaesaeyabraecaeiaesaerabraezaeqaetaey-laravel-activity-7416517654418632704-E5gk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEi3jNsB_svUb1_QBDUbDhY3VM1wNi3ceXo" class="text-blue-600 hover:underline">Demo</a>
-</div>
-      </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+                    Engineered Web Systems. <br>
+                    <span class="bg-gradient-to-r from-sky-600 via-sky-500 to-cyan-500 bg-clip-text text-transparent">Built to Scale.</span>
+                </h1>
 
-        <div data-aos="fade-up"
-           class="bg-white dark:bg-gray-900 border dark:border-gray-800 rounded-xl p-6 hover:shadow-xl hover:-translate-y-1 transition">
+                <p class="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    Senior Full Stack Developer specializing in Laravel architecture, high-performance REST APIs, SQL optimization, and clean, enterprise-grade system workflows.
+                </p>
 
-      <h3 class="text-xl font-semibold">Ad market system </h3>
-        <p class="mt-3 text-gray-600 dark:text-gray-400 text-sm">
-          A dynamic Laravel system for professional Ad Management .
-        </p>
-      <div class="mt-4 flex justify-between items-center text-xs text-blue-500">
-  <span>Laravel • MySQL • Tailwind • jQuery • HTML</span>
-  <a href="https://www.linkedin.com/posts/omar-thamer-b8b6a32a0_ad-market-system-%D9%86%D8%B8%D8%A7%D9%85-%D8%A7%D8%AF%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%A7%D8%B9%D9%84%D8%A7%D9%86%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D9%88%D9%82%D9%8A%D8%A9-activity-7388232397449920512-hUQT?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEi3jNsB_svUb1_QBDUbDhY3VM1wNi3ceXo">Demo</a>
-</div>
-      </div>
+                <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#projects" class="inline-flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-medium px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition">
+                        View Case Studies <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium px-6 py-3 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm transition">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
 
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-20 border-t border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900/50">
+            <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
+                <div class="flex items-center gap-3 justify-center mb-4">
+                    <span class="font-mono text-xs text-sky-600 dark:text-sky-400 uppercase tracking-widest">// Background</span>
+                </div>
+                <h2 class="text-3xl font-bold text-center text-slate-900 dark:text-white mb-8">About Me</h2>
 
- <div data-aos="fade-up"
-           class="bg-white dark:bg-gray-900 border dark:border-gray-800 rounded-xl p-6 hover:shadow-xl hover:-translate-y-1 transition">
+                <div class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-base sm:text-lg">
+                        I am a Full Stack Developer with over <span class="font-semibold text-slate-900 dark:text-white">5 years of hands-on experience</span> architecting scalable web applications, robust backends, and modular APIs. My focus centers on reliable system structures, optimized database design using MySQL and SQL Server, and building secure, efficient workflows for internal operations and enterprise software.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-      <h3 class="text-xl font-semibold">Document Workflow System</h3>
-        <p class="mt-3 text-gray-600 dark:text-gray-400 text-sm">
-          php system for professional Document Workflow  .
-        </p>
-      <div class="mt-4 flex justify-between items-center text-xs text-blue-500">
-  <span>php/MVC • TCPDF Lib • MySQL • Tailwind • jQuery • HTML </span>
-  <a href="https://www.linkedin.com/posts/omar-thamer-b8b6a32a0_i-am-excited-to-share-with-you-my-new-web-activity-7264249496685924356-Bf_9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEi3jNsB_svUb1_QBDUbDhY3VM1wNi3ceXo">Demo</a>
-</div>
-      </div>
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="py-20 border-t border-slate-200 dark:border-slate-800/80">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="flex flex-col items-center mb-12" data-aos="fade-up">
+                    <span class="font-mono text-xs text-sky-600 dark:text-sky-400 uppercase tracking-widest mb-2">// Tech Stack</span>
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Core Capabilities</h2>
+                </div>
 
-      <div data-aos="fade-up"
-           class="bg-white dark:bg-gray-900 border dark:border-gray-800 rounded-xl p-6 hover:shadow-xl hover:-translate-y-1 transition">
+                <div class="relative" data-aos="fade-up">
+                    <!-- Nav Controls -->
+                    <button id="prevSkill" aria-label="Previous skill"
+                        class="absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-700 transition">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
 
-      <h3 class="text-xl font-semibold">Document Management System </h3>
-        <p class="mt-3 text-gray-600 dark:text-gray-400 text-sm">
-          php system for professional Document Management (archiving).
-        </p>
-      <div class="mt-4 flex justify-between items-center text-xs text-blue-500">
-  <span>php/MVC • TCPDF Lib • MySQL • Tailwind • jQuery • HTML </span>
-  <a href="https://www.linkedin.com/posts/omar-thamer-b8b6a32a0_admin-user-activity-7245878696077606912-7-q_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEi3jNsB_svUb1_QBDUbDhY3VM1wNi3ceXo">Demo</a>
-</div>
-      </div>
+                    <!-- Carousel Container -->
+                    <div id="skillsCarousel" class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-5 px-2 py-4 hide-scrollbar">
+                        
+                        <div class="snap-center shrink-0 w-64">
+                            <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-sky-500 transition group h-full">
+                                <div class="w-12 h-12 rounded-lg bg-red-50 dark:bg-red-950/40 text-red-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-brands fa-laravel"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Laravel</h3>
+                                <p class="text-slate-500 text-xs font-mono mt-1">Backend Framework</p>
+                            </div>
+                        </div>
 
-<div data-aos="fade-up"
-           class="bg-white dark:bg-gray-900 border dark:border-gray-800 rounded-xl p-6 hover:shadow-xl hover:-translate-y-1 transition">
+                        <div class="snap-center shrink-0 w-64">
+                            <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-sky-500 transition group h-full">
+                                <div class="w-12 h-12 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 text-indigo-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-brands fa-php"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">PHP</h3>
+                                <p class="text-slate-500 text-xs font-mono mt-1">Server-side Logic</p>
+                            </div>
+                        </div>
 
-      <h3 class="text-xl font-semibold">Job Application Management System </h3>
-        <p class="mt-3 text-gray-600 dark:text-gray-400 text-sm">
-          laravel system for Job Application Management.
-        </p>
-      <div class="mt-4 flex justify-between items-center text-xs text-blue-500">
-  <span>laravel • SweetAlert Lib • MySQL • Tailwind • jQuery • HTML </span>
-  <a href="https://www.linkedin.com/posts/omar-thamer-b8b6a32a0_admin-user-activity-7240294998120816641-aD7l?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEi3jNsB_svUb1_QBDUbDhY3VM1wNi3ceXo">Demo</a>
-</div>
-      </div>
+                        <div class="snap-center shrink-0 w-64">
+                            <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-sky-500 transition group h-full">
+                                <div class="w-12 h-12 rounded-lg bg-sky-50 dark:bg-sky-950/40 text-sky-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">REST APIs</h3>
+                                <p class="text-slate-500 text-xs font-mono mt-1">Design & Integration</p>
+                            </div>
+                        </div>
 
+                        <div class="snap-center shrink-0 w-64">
+                            <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-sky-500 transition group h-full">
+                                <div class="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-database"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">MySQL</h3>
+                                <p class="text-slate-500 text-xs font-mono mt-1">Relational Database</p>
+                            </div>
+                        </div>
 
+                        <div class="snap-center shrink-0 w-64">
+                            <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-sky-500 transition group h-full">
+                                <div class="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-server"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">SQL Server</h3>
+                                <p class="text-slate-500 text-xs font-mono mt-1">Enterprise DB Management</p>
+                            </div>
+                        </div>
 
+                        <div class="snap-center shrink-0 w-64">
+                            <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-sky-500 transition group h-full">
+                                <div class="w-12 h-12 rounded-lg bg-cyan-50 dark:bg-cyan-950/40 text-cyan-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Tailwind CSS</h3>
+                                <p class="text-slate-500 text-xs font-mono mt-1">Utility-First UI</p>
+                            </div>
+                        </div>
 
+                        <div class="snap-center shrink-0 w-64">
+                            <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-sky-500 transition group h-full">
+                                <div class="w-12 h-12 rounded-lg bg-orange-50 dark:bg-orange-950/40 text-orange-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-brands fa-git-alt"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Git & GitHub</h3>
+                                <p class="text-slate-500 text-xs font-mono mt-1">Version Control</p>
+                            </div>
+                        </div>
 
-    </div>
-  </div>
-</section>
+                        <div class="snap-center shrink-0 w-64">
+                            <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-sky-500 transition group h-full">
+                                <div class="w-12 h-12 rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-brands fa-java"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Java</h3>
+                                <p class="text-slate-500 text-xs font-mono mt-1">Object-Oriented Dev</p>
+                            </div>
+                        </div>
 
-<!-- COURSES -->
-<section class="py-20 bg-gray-50 dark:bg-gray-900">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-semibold text-center mb-12" data-aos="fade-up">Courses & Certifications</h2>
+                        <div class="snap-center shrink-0 w-64">
+                            <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:border-sky-500 transition group h-full">
+                                <div class="w-12 h-12 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-hashtag"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">C#</h3>
+                                <p class="text-slate-500 text-xs font-mono mt-1">.NET Framework</p>
+                            </div>
+                        </div>
 
-    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                    </div>
 
-      <!-- Each card animated -->
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">Introduction to Cyber Security </div>
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">Fortinet Certification</div>
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">International Academy for Leadership and Development (ILAD)</div>
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">HTML and CSS Foundations – Udemy </div>
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">C# Course – SoloLearn </div>
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">Java Course – SoloLearn </div>
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">Android Developer – Udacity (Million Arab Coders)</div>
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">Data Structures – Udemy </div>
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">Practical English Skills – Udemy </div>
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">Full Stack Developer – Udacity (Million Arab Coders)</div>
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">Networking Fundamentals – Udemy </div>
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">SQL Server DBA Career Course </div>
-      <div data-aos="fade-up" class="p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">Git & GitHub Crash Course </div>
+                    <button id="nextSkill" aria-label="Next skill"
+                        class="absolute -right-4 sm:-right-6 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-700 transition">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
 
-    </div>
-  </div>
-</section>
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="py-20 border-t border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900/50">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="flex flex-col items-center mb-12" data-aos="fade-up">
+                    <span class="font-mono text-xs text-sky-600 dark:text-sky-400 uppercase tracking-widest mb-2">// Portfolio</span>
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Featured Applications</h2>
+                </div>
 
-<!-- CONTACT -->
-<section id="contact" class="py-20 text-center" data-aos="fade-up">
-  <h2 class="text-3xl font-semibold mb-6">Contact</h2>
+                <div class="grid md:grid-cols-2 gap-8">
 
-  <p class="text-gray-600 dark:text-gray-400 mb-4">
-    Open to freelance and remote opportunities.
-  </p>
+                    <!-- Card 1 -->
+                    <div data-aos="fade-up" class="flex flex-col justify-between bg-slate-50 dark:bg-slate-900 rounded-2xl p-7 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-lg hover:border-slate-300 dark:hover:border-slate-700 transition">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">IT Help Desk Ticket System</h3>
+                                <a href="https://www.linkedin.com/posts/omar-thamer-b8b6a32a0_aewaesaeyabraecaeiaesaerabraezaeqaetaey-laravel-activity-7416517654418632704-E5gk" aria-label="LinkedIn Project Post" target="_blank" class="text-slate-400 hover:text-sky-500 text-lg transition">
+                                    <i class="fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                                A dynamic ticket management platform tailored for enterprise IT support. Enables issue tracking, automated status handling, and technician assignment workflows.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Laravel</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">MySQL</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Tailwind</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">jQuery</span>
+                            </div>
+                        </div>
+                    </div>
 
-  <p class="mb-2">📧 omar.thamer.cs@gmail.com</p>
-  <a href="https://www.linkedin.com/in/omar-thamer-b8b6a32a0/" class="text-blue-500 hover:underline">LinkedIn</a>
-</section>
+                    <!-- Card 2 -->
+                    <div data-aos="fade-up" class="flex flex-col justify-between bg-slate-50 dark:bg-slate-900 rounded-2xl p-7 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-lg hover:border-slate-300 dark:hover:border-slate-700 transition">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Ad Market System</h3>
+                                <a href="https://www.linkedin.com/posts/omar-thamer-b8b6a32a0_ad-market-system-%D9%86%D8%B8%D8%A7%D9%85-%D8%A7%D8%AF%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B9%D9%84%D8%A7%D9%86%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D9%88%D9%82%D9%8A%D8%A9-activity-7388232397449920512-hUQT" aria-label="LinkedIn Project Post" target="_blank" class="text-slate-400 hover:text-sky-500 text-lg transition">
+                                    <i class="fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                                Scalable application designed for full lifecycle advertisement placement, market listing moderation, dynamic metrics, and administrative governance.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Laravel</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">MySQL</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Tailwind</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">jQuery</span>
+                            </div>
+                        </div>
+                    </div>
 
-</main>
+                    <!-- Card 3 -->
+                    <div data-aos="fade-up" class="flex flex-col justify-between bg-slate-50 dark:bg-slate-900 rounded-2xl p-7 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-lg hover:border-slate-300 dark:hover:border-slate-700 transition">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Document Workflow System</h3>
+                                <a href="https://www.linkedin.com/posts/omar-thamer-b8b6a32a0_i-am-excited-to-share-with-you-my-new-web-activity-7264249496685924356-Bf_9" aria-label="LinkedIn Project Post" target="_blank" class="text-slate-400 hover:text-sky-500 text-lg transition">
+                                    <i class="fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                                Modern document tracking & approvals platform using native PHP MVC architecture integrated with TCPDF for dynamic reporting and PDF creation.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">PHP/MVC</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">TCPDF</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
 
-<footer class="text-center py-6 text-sm text-gray-500">
-  © 2026 Omar Thamer
-</footer>
+                    <!-- Card 4 -->
+                    <div data-aos="fade-up" class="flex flex-col justify-between bg-slate-50 dark:bg-slate-900 rounded-2xl p-7 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-lg hover:border-slate-300 dark:hover:border-slate-700 transition">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Document Archival System</h3>
+                                <a href="https://www.linkedin.com/posts/omar-thamer-b8b6a32a0_admin-user-activity-7245878696077606912-7-q_" aria-label="LinkedIn Project Post" target="_blank" class="text-slate-400 hover:text-sky-500 text-lg transition">
+                                    <i class="fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                                Enterprise-grade document management and digital archiving tool featuring user role permissions, metadata indexing, and search filters.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">PHP/MVC</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">MySQL</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Tailwind</span>
+                            </div>
+                        </div>
+                    </div>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                    <!-- Card 5 -->
+                    <div data-aos="fade-up" class="md:col-span-2 flex flex-col justify-between bg-slate-50 dark:bg-slate-900 rounded-2xl p-7 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-lg hover:border-slate-300 dark:hover:border-slate-700 transition">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Job Application Portal</h3>
+                                <a href="https://www.linkedin.com/posts/omar-thamer-b8b6a32a0_admin-user-activity-7240294998120816641-aD7l" aria-label="LinkedIn Project Post" target="_blank" class="text-slate-400 hover:text-sky-500 text-lg transition">
+                                    <i class="fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                                Recruitment lifecycle manager enabling candidates to submit standardized applications while offering HR administrators candidate filtering, interactive status modal dialogues, and evaluation pipelines.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Laravel</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">SweetAlert2</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">MySQL</span>
+                                <span class="bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Tailwind</span>
+                            </div>
+                        </div>
+                    </div>
 
-<script>
-// =====================
-// AOS
-// =====================
-AOS.init({
-    duration: 800,
-    once: true,
-    offset: 50
-});
+                </div>
+            </div>
+        </section>
 
-// =====================
-// Dark Mode
-// =====================
-const darkBtn = document.getElementById("dark-toggle-btn");
+        <!-- COURSES & CERTIFICATIONS -->
+        <section id="certifications" class="py-20 border-t border-slate-200 dark:border-slate-800/80">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="flex flex-col items-center mb-12" data-aos="fade-up">
+                    <span class="font-mono text-xs text-sky-600 dark:text-sky-400 uppercase tracking-widest mb-2">// Credentials</span>
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Courses & Certifications</h2>
+                </div>
 
-if (localStorage.getItem("theme") === "dark") {
-    document.documentElement.classList.add("dark");
-}
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                    
+                    <div data-aos="fade-up" class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-3">
+                        <i class="fa-solid fa-shield-halved text-sky-500"></i>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">Introduction to Cyber Security</span>
+                    </div>
 
-darkBtn.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
+                    <div data-aos="fade-up" class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-3">
+                        <i class="fa-solid fa-certificate text-sky-500"></i>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">Fortinet Certification</span>
+                    </div>
 
-    localStorage.setItem(
-        "theme",
-        document.documentElement.classList.contains("dark")
-            ? "dark"
-            : "light"
-    );
-});
+                    <div data-aos="fade-up" class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-3">
+                        <i class="fa-solid fa-award text-sky-500"></i>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">ILAD Leadership Academy</span>
+                    </div>
 
-// =====================
-// Mobile Menu
-// =====================
-const mobileBtn = document.getElementById("mobile-menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
+                    <div data-aos="fade-up" class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-3">
+                        <i class="fa-brands fa-html5 text-sky-500"></i>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">HTML & CSS Foundations – Udemy</span>
+                    </div>
 
-mobileBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-});
+                    <div data-aos="fade-up" class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-3">
+                        <i class="fa-solid fa-code text-sky-500"></i>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">C# Course – SoloLearn</span>
+                    </div>
 
-// =====================
-// Skills Carousel
-// =====================
-const carousel = document.getElementById("skillsCarousel");
-const prevBtn = document.getElementById("prevSkill");
-const nextBtn = document.getElementById("nextSkill");
+                    <div data-aos="fade-up" class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-3">
+                        <i class="fa-brands fa-java text-sky-500"></i>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">Java Course – SoloLearn</span>
+                    </div>
 
-if (carousel && prevBtn && nextBtn) {
+                    <div data-aos="fade-up" class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-3">
+                        <i class="fa-brands fa-android text-sky-500"></i>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">Android Developer – Udacity</span>
+                    </div>
 
-    const cards = carousel.querySelectorAll(".shrink-0");
-    let currentIndex = 0;
+                    <div data-aos="fade-up" class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-3">
+                        <i class="fa-solid fa-[#0e101a] fa-diagram-project text-sky-500"></i>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">Data Structures – Udemy</span>
+                    </div>
 
-    function scrollToCard(index) {
-        cards[index].scrollIntoView({
-            behavior: "smooth",
-            inline: "center",
-            block: "nearest"
+                    <div data-aos="fade-up" class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-3">
+                        <i class="fa-solid fa-graduation-cap text-sky-500"></i>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">Full Stack Developer – Udacity</span>
+                    </div>
+
+                    <div data-aos="fade-up" class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-3">
+                        <i class="fa-solid fa-network-wired text-sky-500"></i>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">Networking Fundamentals – Udemy</span>
+                    </div>
+
+                    <div data-aos="fade-up" class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-3">
+                        <i class="fa-solid fa-database text-sky-500"></i>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">SQL Server DBA Career Course</span>
+                    </div>
+
+                    <div data-aos="fade-up" class="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-3">
+                        <i class="fa-brands fa-github text-sky-500"></i>
+                        <span class="font-medium text-slate-800 dark:text-slate-200">Git & GitHub Crash Course</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-24 border-t border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900/50">
+            <div class="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up">
+                <span class="font-mono text-xs text-sky-600 dark:text-sky-400 uppercase tracking-widest">// Connection</span>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mt-2 mb-4">Let's Work Together</h2>
+                <p class="text-slate-600 dark:text-slate-400 mb-8 max-w-lg mx-auto">
+                    Open to full-time roles, contract opportunities, and strategic consulting for web architecture.
+                </p>
+
+                <div class="inline-flex flex-col sm:flex-row items-center gap-4 bg-slate-50 dark:bg-slate-900 p-3 rounded-2xl border border-slate-200/80 dark:border-slate-800/80">
+                    <a href="mailto:omar.thamer.cs@gmail.com" class="flex items-center gap-3 px-5 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:border-sky-500 transition text-slate-800 dark:text-slate-200 font-medium">
+                        <i class="fa-regular fa-envelope text-sky-500 text-lg"></i>
+                        <span>omar.thamer.cs@gmail.com</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/omar-thamer-b8b6a32a0/" target="_blank" class="flex items-center gap-3 px-5 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-medium transition shadow-sm">
+                        <i class="fa-brands fa-linkedin text-lg"></i>
+                        <span>Connect on LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-8 bg-slate-50 dark:bg-slate-950 text-center text-xs font-mono text-slate-500">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>© 2026 Omar Thamer. All rights reserved.</p>
+            <p class="flex items-center gap-2">
+                <span>Designed with Precision</span>
+                <span>•</span>
+                <span>Laravel & Tailwind Focus</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JS SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Init AOS Library
+        AOS.init({
+            duration: 700,
+            once: true,
+            offset: 40
         });
-    }
 
-    nextBtn.addEventListener("click", () => {
-        currentIndex++;
+        // Theme Switcher Logic
+        const darkBtn = document.getElementById("dark-toggle-btn");
+        const darkBtnMobile = document.getElementById("dark-toggle-btn-mobile");
+        const themeIcon = document.getElementById("theme-icon");
+        const themeIconMobile = document.getElementById("theme-icon-mobile");
 
-        if (currentIndex >= cards.length) {
-            currentIndex = 0;
+        function updateIcons(isDark) {
+            const iconClass = isDark ? "fa-solid fa-sun text-amber-400" : "fa-regular fa-moon";
+            if (themeIcon) themeIcon.className = iconClass;
+            if (themeIconMobile) themeIconMobile.className = iconClass;
         }
 
-        scrollToCard(currentIndex);
-    });
-
-    prevBtn.addEventListener("click", () => {
-        currentIndex--;
-
-        if (currentIndex < 0) {
-            currentIndex = cards.length - 1;
+        // System Preference / Storage Check
+        if (localStorage.getItem("theme") === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            document.documentElement.classList.add("dark");
+            updateIcons(true);
+        } else {
+            document.documentElement.classList.remove("dark");
+            updateIcons(false);
         }
 
-        scrollToCard(currentIndex);
-    });
-
-    // Auto-play every 3 seconds
-    let autoSlide = setInterval(() => {
-        currentIndex++;
-
-        if (currentIndex >= cards.length) {
-            currentIndex = 0;
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+            updateIcons(isDark);
         }
 
-        scrollToCard(currentIndex);
-    }, 3000);
+        darkBtn?.addEventListener("click", toggleTheme);
+        darkBtnMobile?.addEventListener("click", toggleTheme);
 
-    // Pause autoplay while hovering
-    carousel.addEventListener("mouseenter", () => {
-        clearInterval(autoSlide);
-    });
+        // Mobile Menu Drawer
+        const mobileBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
 
-    carousel.addEventListener("mouseleave", () => {
-        autoSlide = setInterval(() => {
-            currentIndex++;
+        mobileBtn?.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
 
-            if (currentIndex >= cards.length) {
-                currentIndex = 0;
-            }
+        // Carousel Controls
+        const carousel = document.getElementById("skillsCarousel");
+        const prevBtn = document.getElementById("prevSkill");
+        const nextBtn = document.getElementById("nextSkill");
 
-            scrollToCard(currentIndex);
-        }, 3000);
-    });
-}
-</script>
+        if (carousel && prevBtn && nextBtn) {
+            const cardWidth = 276; // Card width + gap
 
+            nextBtn.addEventListener("click", () => {
+                carousel.scrollBy({ left: cardWidth, behavior: "smooth" });
+            });
 
+            prevBtn.addEventListener("click", () => {
+                carousel.scrollBy({ left: -cardWidth, behavior: "smooth" });
+            });
 
+            // Auto-scroll mechanism
+            let autoSlide = setInterval(() => {
+                if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                    carousel.scrollTo({ left: 0, behavior: "smooth" });
+                } else {
+                    carousel.scrollBy({ left: cardWidth, behavior: "smooth" });
+                }
+            }, 3500);
 
-
-
-
-
-
-
-
-  
-
+            carousel.addEventListener("mouseenter", () => clearInterval(autoSlide));
+            carousel.addEventListener("mouseleave", () => {
+                autoSlide = setInterval(() => {
+                    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                        carousel.scrollTo({ left: 0, behavior: "smooth" });
+                    } else {
+                        carousel.scrollBy({ left: cardWidth, behavior: "smooth" });
+                    }
+                }, 3500);
+            });
+        }
+    </script>
 </body>
 </html>
